@@ -1,10 +1,13 @@
-FROM python:3.7.2-slim-stretch
+#FROM python:3.7.2-slim-stretch
+FROM centos:latest
 
 WORKDIR /src/app/
 
 COPY ./requirements.txt .
 
-RUN ["pip", "install", "-r", "./requirements.txt"]
+RUN ["yum", "-y", "install", "python3"]
+
+RUN ["pip3", "install", "--user", "-r", "./requirements.txt"]
 
 COPY . .
 
